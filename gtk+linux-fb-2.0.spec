@@ -1,14 +1,11 @@
-%define name gtk-linux-fb-2.0
 %define archname gtk+
-%define version 2.4.14
-%define release 6mdk
 %define major 0
 %define libname %mklibname gtk-linux-fb-2.0_ %{major}
 
 Summary: gtk+ linux-fb libraries
-Name: %{name}
-Version: %{version}
-Release: %{release}
+Name: gtk-linux-fb-2.0
+Version: 2.4.14
+Release: %mkrel 7
 Source0: %{archname}-%{version}.tar.bz2
 License: GPL
 Group: System/Configuration/Theme
