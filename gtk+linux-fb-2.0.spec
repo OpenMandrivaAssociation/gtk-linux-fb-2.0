@@ -8,7 +8,7 @@ Version: 2.4.14
 Release: %mkrel 7
 Source0: %{archname}-%{version}.tar.bz2
 License: GPL
-Group: System/Configuration/Theme
+Group: System/Configuration/Other
 BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires:	libglib2-devel libatk-devel libpango-devel
 BuildRequires:	libtiff-devel libpng-devel
@@ -16,7 +16,6 @@ BuildRequires:	libgdk_pixbuf2.0-devel
 Prefix: %{_prefix}
 
 %description
-
 gtk+ linux-fb libraries
 
 %package -n %{libname}
@@ -24,7 +23,6 @@ Summary: gtk+ linux-fb library
 Group: System/Libraries
 
 %description -n %{libname}
-
 gtk+ linux-fb library
 
 %package -n %{libname}-devel
@@ -69,4 +67,3 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_libdir}/libgdk-*.so
 %{_libdir}/libgtk-*.so
-
