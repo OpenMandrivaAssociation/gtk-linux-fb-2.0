@@ -31,7 +31,6 @@ Requires: %{libname} = %{version}
 Provides: gtk-linux-fb-2.0-devel = %{version}-%{release} libgtk-linux-fb-2.0-devel = %{version}-%{release} gdk-linux-fb-2.0-devel = %{version}-%{release} libgdk-linux-fb-2.0-devel = %{version}-%{release}
 
 %description -n %{libname}-devel
-
 Development library for gtk+-linux-fb-2.0
 
 %prep
