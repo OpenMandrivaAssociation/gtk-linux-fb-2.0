@@ -2,7 +2,7 @@
 %define major 0
 %define libname %mklibname gtk-linux-fb-2.0_ %{major}
 
-Summary: gtk+ linux-fb libraries
+Summary: Gtk+ linux-fb libraries
 Name: gtk-linux-fb-2.0
 Version: 2.4.14
 Release: %mkrel 7
@@ -19,7 +19,7 @@ Prefix: %{_prefix}
 gtk+ linux-fb libraries
 
 %package -n %{libname}
-Summary: gtk+ linux-fb library
+Summary: Gtk+ linux-fb library
 Group: System/Libraries
 
 %description -n %{libname}
