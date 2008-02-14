@@ -9,6 +9,7 @@ Release: %mkrel 7
 Source0: %{archname}-%{version}.tar.bz2
 License: GPL
 Group: System/Configuration/Other
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libglib2-devel libatk-devel libpango-devel
 BuildRequires:	libtiff-devel libpng-devel
 BuildRequires:	libgdk_pixbuf2.0-devel
