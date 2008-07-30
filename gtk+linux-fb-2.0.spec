@@ -12,9 +12,10 @@ Source0:	%{archname}-%{version}.tar.bz2
 Patch0:		gtk+-2.4.14-no_DISABLE_DEPRECATED_fix.diff
 Patch1:		gtk+-2.4.14-linkage_fix.diff
 Patch2:		gtk+-2.4.14-g_hash_table_get_keys_fix.diff
+BuildRequires:	automake1.7
+BuildRequires:	libgdk_pixbuf2.0-devel
 BuildRequires:	libglib2-devel libatk-devel libpango-devel
 BuildRequires:	libtiff-devel libpng-devel
-BuildRequires:	libgdk_pixbuf2.0-devel
 BuildRequires:	libtool
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -48,7 +49,9 @@ Development library for gtk+-linux-fb-2.0
 # plan a
 export CFLAGS="%{optflags} -D_GNU_SOURCE=1"
 libtoolize --copy --force
-autoreconf -fis
+autoheader
+automake-1.7
+autoconf
 
 %configure2_5x --with-gdktarget=linux-fb --enable-gtk-doc=no
 
