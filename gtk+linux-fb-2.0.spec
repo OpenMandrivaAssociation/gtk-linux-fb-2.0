@@ -7,7 +7,7 @@ Name:		gtk-linux-fb-2.0
 Version:	2.4.14
 Release:	%mkrel 8
 License:	GPL
-Group:		System/Configuration/Theme
+Group:		System/Configuration/Other
 Source0:	%{archname}-%{version}.tar.bz2
 Patch0:		gtk+-2.4.14-no_DISABLE_DEPRECATED_fix.diff
 Patch1:		gtk+-2.4.14-linkage_fix.diff
