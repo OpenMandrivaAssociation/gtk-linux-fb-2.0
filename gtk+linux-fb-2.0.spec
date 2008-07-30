@@ -2,24 +2,27 @@
 %define major 0
 %define libname %mklibname gtk-linux-fb-2.0_ %{major}
 
-Summary: Gtk+ linux-fb libraries
-Name: gtk-linux-fb-2.0
-Version: 2.4.14
-Release: %mkrel 7
-Source0: %{archname}-%{version}.tar.bz2
-License: GPL
-Group: System/Configuration/Other
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Summary:	gtk+ linux-fb libraries
+Name:		gtk-linux-fb-2.0
+Version:	2.4.14
+Release:	%mkrel 8
+License:	GPL
+Group:		System/Configuration/Theme
+Source0:	%{archname}-%{version}.tar.bz2
+Patch0:		gtk+-2.4.14-no_DISABLE_DEPRECATED_fix.diff
+Patch1:		gtk+-2.4.14-linkage_fix.diff
+Patch2:		gtk+-2.4.14-g_hash_table_get_keys_fix.diff
 BuildRequires:	libglib2-devel libatk-devel libpango-devel
 BuildRequires:	libtiff-devel libpng-devel
 BuildRequires:	libgdk_pixbuf2.0-devel
-Prefix: %{_prefix}
+BuildRequires:	libtool
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 gtk+ linux-fb libraries
 
 %package -n %{libname}
-Summary: Gtk+ linux-fb library
+Summary: gtk+ linux-fb library
 Group: System/Libraries
 
 %description -n %{libname}
@@ -35,31 +38,46 @@ Provides: gtk-linux-fb-2.0-devel = %{version}-%{release} libgtk-linux-fb-2.0-dev
 Development library for gtk+-linux-fb-2.0
 
 %prep
+
 %setup -q -n %{archname}-%{version}
+%patch0 -p1
+%patch1 -p0
+%patch2 -p1
 
 %build
+# plan a
+export CFLAGS="%{optflags} -D_GNU_SOURCE=1"
 libtoolize --copy --force
+autoreconf -fis
+
 %configure2_5x --with-gdktarget=linux-fb --enable-gtk-doc=no
+
+# plan b
+echo "#define GNU_SOURCE 1" >> config.h
+
+# plan c
+find -name Makefile | xargs perl -pi -e "s|-DHAVE_CONFIG_H|-DHAVE_CONFIG_H -D_GNU_SOURCE=1|g"
+
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 # install shared libs only
-make install-libLTLIBRARIES DESTDIR=$RPM_BUILD_ROOT -C gdk
-make install-libLTLIBRARIES DESTDIR=$RPM_BUILD_ROOT -C gtk
-rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
+make install-libLTLIBRARIES DESTDIR=%{buildroot} -C gdk
+make install-libLTLIBRARIES DESTDIR=%{buildroot} -C gtk
+rm -f %{buildroot}%{_libdir}/*.la
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
 %endif
-
+ 
 %if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(755,root,root)
