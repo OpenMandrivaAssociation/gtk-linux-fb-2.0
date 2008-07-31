@@ -16,7 +16,7 @@ BuildRequires:	automake1.7
 BuildRequires:	libgdk_pixbuf2.0-devel
 BuildRequires:	libglib2-devel libatk-devel libpango-devel
 BuildRequires:	libtiff-devel libpng-devel
-BuildRequires:	libtool
+BuildRequires:	libtool gtk-doc
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -45,21 +45,11 @@ Development library for gtk+-linux-fb-2.0
 %patch1 -p0 -b .linkage_fix
 %patch2 -p1 -b .g_hash_table_get_keys_fix
 
+#needed by all patches
+autoreconf
+
 %build
-# plan a
-export CFLAGS="%{optflags} -D_GNU_SOURCE=1"
-libtoolize --copy --force
-autoheader
-automake-1.7
-autoconf
-
 %configure2_5x --with-gdktarget=linux-fb --enable-gtk-doc=no
-
-# plan b
-echo "#define GNU_SOURCE 1" >> config.h
-
-# plan c
-find -name Makefile | xargs perl -pi -e "s|-DHAVE_CONFIG_H|-DHAVE_CONFIG_H -D_GNU_SOURCE=1|g"
 
 %make
 
