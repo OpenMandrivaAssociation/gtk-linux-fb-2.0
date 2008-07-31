@@ -41,9 +41,9 @@ Development library for gtk+-linux-fb-2.0
 %prep
 
 %setup -q -n %{archname}-%{version}
-%patch0 -p1
-%patch1 -p0
-%patch2 -p1
+%patch0 -p1 -b .no_DISABLE_DEPRECATED_fix
+%patch1 -p0 -b .linkage_fix
+%patch2 -p1 -b .g_hash_table_get_keys_fix
 
 %build
 # plan a
