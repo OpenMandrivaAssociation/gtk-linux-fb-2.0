@@ -46,9 +46,9 @@ Development library for gtk+-linux-fb-2.0
 %patch2 -p1 -b .g_hash_table_get_keys_fix
 
 #needed by all patches
-autoreconf
 
 %build
+autoreconf -fi
 %configure2_5x --with-gdktarget=linux-fb --enable-gtk-doc=no
 
 %make
