@@ -12,6 +12,7 @@ Source0:	%{archname}-%{version}.tar.bz2
 Patch0:		gtk+-2.4.14-no_DISABLE_DEPRECATED_fix.diff
 Patch1:		gtk+-2.4.14-linkage_fix.diff
 Patch2:		gtk+-2.4.14-g_hash_table_get_keys_fix.diff
+Patch3:		gtk+-2.4.14-fix-str-fmt.patch
 BuildRequires:	automake1.7
 BuildRequires:	libgdk_pixbuf2.0-devel
 BuildRequires:	libglib2-devel libatk-devel libpango-devel
@@ -44,13 +45,11 @@ Development library for gtk+-linux-fb-2.0
 %patch0 -p1 -b .no_DISABLE_DEPRECATED_fix
 %patch1 -p0 -b .linkage_fix
 %patch2 -p1 -b .g_hash_table_get_keys_fix
-
-#needed by all patches
+%patch3 -p0 -b .str
 
 %build
 autoreconf -fi
 %configure2_5x --with-gdktarget=linux-fb --enable-gtk-doc=no
-
 %make
 
 %install
