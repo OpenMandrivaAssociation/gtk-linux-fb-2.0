@@ -5,7 +5,7 @@
 Summary:	gtk+ linux-fb libraries
 Name:		gtk-linux-fb-2.0
 Version:	2.4.14
-Release:	%mkrel 12
+Release:	%mkrel 13
 License:	GPL
 Group:		System/Configuration/Other
 Source0:	%{archname}-%{version}.tar.bz2
@@ -13,7 +13,7 @@ Patch0:		gtk+-2.4.14-no_DISABLE_DEPRECATED_fix.diff
 Patch1:		gtk+-2.4.14-linkage_fix.diff
 Patch2:		gtk+-2.4.14-g_hash_table_get_keys_fix.diff
 Patch3:		gtk+-2.4.14-fix-str-fmt.patch
-BuildRequires:	automake1.7
+BuildRequires:	automake
 BuildRequires:	libgdk_pixbuf2.0-devel
 BuildRequires:	libglib2-devel libatk-devel libpango-devel
 BuildRequires:	libtiff-devel libpng-devel
