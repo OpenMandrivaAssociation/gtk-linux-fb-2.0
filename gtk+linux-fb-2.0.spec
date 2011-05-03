@@ -5,7 +5,7 @@
 Summary:	gtk+ linux-fb libraries
 Name:		gtk-linux-fb-2.0
 Version:	2.4.14
-Release:	%mkrel 13
+Release:	%mkrel 14
 License:	GPL
 Group:		System/Configuration/Other
 Source0:	%{archname}-%{version}.tar.bz2
