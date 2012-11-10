@@ -1,0 +1,314 @@
+diff -Naur gtk+-2.4.14/contrib/gdk-pixbuf-xlib/Makefile.am gtk+-2.4.14.oden/contrib/gdk-pixbuf-xlib/Makefile.am
+--- gtk+-2.4.14/contrib/gdk-pixbuf-xlib/Makefile.am	2004-03-03 21:53:23.000000000 +0100
++++ gtk+-2.4.14.oden/contrib/gdk-pixbuf-xlib/Makefile.am	2008-07-30 17:03:49.000000000 +0200
+@@ -4,8 +4,6 @@
+ 	-I$(top_srcdir) -I$(top_builddir) 	\
+ 	-I$(top_srcdir)/gdk-pixbuf 		\
+ 	-I$(top_srcdir)/contrib 		\
+-	-DG_DISABLE_DEPRECATED			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED		\
+ 	$(GDK_PIXBUF_XLIB_DEP_CFLAGS)
+ 
+ libgdk_pixbuf_xlib_2_0_la_LDFLAGS =         \
+diff -Naur gtk+-2.4.14/contrib/gdk-pixbuf-xlib/Makefile.in gtk+-2.4.14.oden/contrib/gdk-pixbuf-xlib/Makefile.in
+--- gtk+-2.4.14/contrib/gdk-pixbuf-xlib/Makefile.in	2004-12-03 04:55:44.000000000 +0100
++++ gtk+-2.4.14.oden/contrib/gdk-pixbuf-xlib/Makefile.in	2008-07-30 17:03:54.000000000 +0200
+@@ -279,8 +279,6 @@
+ 	-I$(top_srcdir) -I$(top_builddir) 	\
+ 	-I$(top_srcdir)/gdk-pixbuf 		\
+ 	-I$(top_srcdir)/contrib 		\
+-	-DG_DISABLE_DEPRECATED			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED		\
+ 	$(GDK_PIXBUF_XLIB_DEP_CFLAGS)
+ 
+ 
+diff -Naur gtk+-2.4.14/demos/gtk-demo/Makefile.am gtk+-2.4.14.oden/demos/gtk-demo/Makefile.am
+--- gtk+-2.4.14/demos/gtk-demo/Makefile.am	2004-04-21 19:52:33.000000000 +0200
++++ gtk+-2.4.14.oden/demos/gtk-demo/Makefile.am	2008-07-30 17:03:33.000000000 +0200
+@@ -30,10 +30,6 @@
+ 	-DDEMOCODEDIR="\"$(democodedir)\""		\
+ 	-I$(top_srcdir) 				\
+ 	-I$(top_builddir)/gdk				\
+-	-DG_DISABLE_DEPRECATED	 			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED			\
+-	-DGDK_DISABLE_DEPRECATED			\
+-	-DGTK_DISABLE_DEPRECATED 			\
+ 	$(GTK_DEBUG_FLAGS)				\
+ 	$(GTK_DEP_CFLAGS)
+ 
+diff -Naur gtk+-2.4.14/demos/gtk-demo/Makefile.in gtk+-2.4.14.oden/demos/gtk-demo/Makefile.in
+--- gtk+-2.4.14/demos/gtk-demo/Makefile.in	2004-12-03 04:55:44.000000000 +0100
++++ gtk+-2.4.14.oden/demos/gtk-demo/Makefile.in	2008-07-30 17:03:43.000000000 +0200
+@@ -303,10 +303,6 @@
+ 	-DDEMOCODEDIR="\"$(democodedir)\""		\
+ 	-I$(top_srcdir) 				\
+ 	-I$(top_builddir)/gdk				\
+-	-DG_DISABLE_DEPRECATED	 			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED			\
+-	-DGDK_DISABLE_DEPRECATED			\
+-	-DGTK_DISABLE_DEPRECATED 			\
+ 	$(GTK_DEBUG_FLAGS)				\
+ 	$(GTK_DEP_CFLAGS)
+ 
+diff -Naur gtk+-2.4.14/demos/Makefile.am gtk+-2.4.14.oden/demos/Makefile.am
+--- gtk+-2.4.14/demos/Makefile.am	2003-06-06 02:52:19.000000000 +0200
++++ gtk+-2.4.14.oden/demos/Makefile.am	2008-07-30 17:03:22.000000000 +0200
+@@ -5,10 +5,6 @@
+ INCLUDES = 						\
+ 	-I$(top_srcdir) 				\
+ 	-I$(top_builddir)/gdk				\
+-	-DG_DISABLE_DEPRECATED	 			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED			\
+-	-DGDK_DISABLE_DEPRECATED			\
+-	-DGTK_DISABLE_DEPRECATED			\
+ 	$(GTK_DEBUG_FLAGS)				\
+ 	$(GTK_DEP_CFLAGS)
+ 
+diff -Naur gtk+-2.4.14/demos/Makefile.in gtk+-2.4.14.oden/demos/Makefile.in
+--- gtk+-2.4.14/demos/Makefile.in	2004-12-03 04:55:44.000000000 +0100
++++ gtk+-2.4.14.oden/demos/Makefile.in	2008-07-30 17:03:28.000000000 +0200
+@@ -280,10 +280,6 @@
+ INCLUDES = \
+ 	-I$(top_srcdir) 				\
+ 	-I$(top_builddir)/gdk				\
+-	-DG_DISABLE_DEPRECATED	 			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED			\
+-	-DGDK_DISABLE_DEPRECATED			\
+-	-DGTK_DISABLE_DEPRECATED			\
+ 	$(GTK_DEBUG_FLAGS)				\
+ 	$(GTK_DEP_CFLAGS)
+ 
+diff -Naur gtk+-2.4.14/gdk/linux-fb/Makefile.am gtk+-2.4.14.oden/gdk/linux-fb/Makefile.am
+--- gtk+-2.4.14/gdk/linux-fb/Makefile.am	2003-12-10 14:49:53.000000000 +0100
++++ gtk+-2.4.14.oden/gdk/linux-fb/Makefile.am	2008-07-30 17:02:52.000000000 +0200
+@@ -15,8 +15,6 @@
+ 	-I$(top_srcdir)		\
+ 	-I$(top_srcdir)/gdk	\
+ 	-I$(top_builddir)/gdk	\
+-	-DG_DISABLE_DEPRECATED	\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED	\
+ 	$(GDK_DEP_CFLAGS)	\
+ 	$(GTK_DEBUG_FLAGS)
+ 
+diff -Naur gtk+-2.4.14/gdk/linux-fb/Makefile.in gtk+-2.4.14.oden/gdk/linux-fb/Makefile.in
+--- gtk+-2.4.14/gdk/linux-fb/Makefile.in	2004-12-03 04:55:46.000000000 +0100
++++ gtk+-2.4.14.oden/gdk/linux-fb/Makefile.in	2008-07-30 17:02:59.000000000 +0200
+@@ -286,8 +286,6 @@
+ 	-I$(top_srcdir)		\
+ 	-I$(top_srcdir)/gdk	\
+ 	-I$(top_builddir)/gdk	\
+-	-DG_DISABLE_DEPRECATED	\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED	\
+ 	$(GDK_DEP_CFLAGS)	\
+ 	$(GTK_DEBUG_FLAGS)
+ 
+diff -Naur gtk+-2.4.14/gdk/Makefile.am gtk+-2.4.14.oden/gdk/Makefile.am
+--- gtk+-2.4.14/gdk/Makefile.am	2003-12-10 14:49:52.000000000 +0100
++++ gtk+-2.4.14.oden/gdk/Makefile.am	2008-07-30 17:01:52.000000000 +0200
+@@ -16,9 +16,6 @@
+ 	-I$(top_srcdir)			\
+ 	-I$(top_builddir)/gdk		\
+ 	-I$(top_srcdir)/gdk-pixbuf 	\
+-	-DG_DISABLE_DEPRECATED		\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED	\
+-	-DGDK_DISABLE_DEPRECATED	\
+ 	$(GTK_DEBUG_FLAGS) 		\
+ 	$(GDK_DEP_CFLAGS)
+ 
+diff -Naur gtk+-2.4.14/gdk/Makefile.in gtk+-2.4.14.oden/gdk/Makefile.in
+--- gtk+-2.4.14/gdk/Makefile.in	2004-12-03 04:55:46.000000000 +0100
++++ gtk+-2.4.14.oden/gdk/Makefile.in	2008-07-30 17:02:34.000000000 +0200
+@@ -293,9 +293,6 @@
+ 	-I$(top_srcdir)			\
+ 	-I$(top_builddir)/gdk		\
+ 	-I$(top_srcdir)/gdk-pixbuf 	\
+-	-DG_DISABLE_DEPRECATED		\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED	\
+-	-DGDK_DISABLE_DEPRECATED	\
+ 	$(GTK_DEBUG_FLAGS) 		\
+ 	$(GDK_DEP_CFLAGS)
+ 
+diff -Naur gtk+-2.4.14/gdk/x11/Makefile.am gtk+-2.4.14.oden/gdk/x11/Makefile.am
+--- gtk+-2.4.14/gdk/x11/Makefile.am	2003-12-10 14:49:57.000000000 +0100
++++ gtk+-2.4.14.oden/gdk/x11/Makefile.am	2008-07-30 17:02:43.000000000 +0200
+@@ -8,9 +8,6 @@
+ 	-I$(top_srcdir)			\
+ 	-I$(top_srcdir)/gdk		\
+ 	-I$(top_builddir)/gdk		\
+-	-DG_DISABLE_DEPRECATED		\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED	\
+-	-DGDK_DISABLE_DEPRECATED	\
+ 	$(GTK_DEBUG_FLAGS) 		\
+ 	$(GDK_DEP_CFLAGS)
+ 
+diff -Naur gtk+-2.4.14/gdk/x11/Makefile.in gtk+-2.4.14.oden/gdk/x11/Makefile.in
+--- gtk+-2.4.14/gdk/x11/Makefile.in	2004-12-03 04:55:47.000000000 +0100
++++ gtk+-2.4.14.oden/gdk/x11/Makefile.in	2008-07-30 17:02:47.000000000 +0200
+@@ -284,9 +284,6 @@
+ 	-I$(top_srcdir)			\
+ 	-I$(top_srcdir)/gdk		\
+ 	-I$(top_builddir)/gdk		\
+-	-DG_DISABLE_DEPRECATED		\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED	\
+-	-DGDK_DISABLE_DEPRECATED	\
+ 	$(GTK_DEBUG_FLAGS) 		\
+ 	$(GDK_DEP_CFLAGS)
+ 
+diff -Naur gtk+-2.4.14/gdk-pixbuf/Makefile.am gtk+-2.4.14.oden/gdk-pixbuf/Makefile.am
+--- gtk+-2.4.14/gdk-pixbuf/Makefile.am	2004-03-15 14:07:04.000000000 +0100
++++ gtk+-2.4.14.oden/gdk-pixbuf/Makefile.am	2008-07-30 17:04:50.000000000 +0200
+@@ -259,8 +259,6 @@
+ 	-DGTK_SYSCONFDIR=\"$(sysconfdir)\"	\
+ 	-DGTK_VERSION=\"$(GTK_VERSION)\"	\
+ 	-DGTK_BINARY_VERSION=\"$(GTK_BINARY_VERSION)\"	\
+-	-DG_DISABLE_DEPRECATED			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED		\
+ 	-DGTK_PREFIX=\"$(prefix)\"		\
+ 	$(INCLUDED_LOADER_DEFINE) 		\
+ 	$(GTK_DEBUG_FLAGS)			\
+diff -Naur gtk+-2.4.14/gdk-pixbuf/Makefile.in gtk+-2.4.14.oden/gdk-pixbuf/Makefile.in
+--- gtk+-2.4.14/gdk-pixbuf/Makefile.in	2004-12-03 04:55:45.000000000 +0100
++++ gtk+-2.4.14.oden/gdk-pixbuf/Makefile.in	2008-07-30 17:04:55.000000000 +0200
+@@ -496,8 +496,6 @@
+ 	-DGTK_SYSCONFDIR=\"$(sysconfdir)\"	\
+ 	-DGTK_VERSION=\"$(GTK_VERSION)\"	\
+ 	-DGTK_BINARY_VERSION=\"$(GTK_BINARY_VERSION)\"	\
+-	-DG_DISABLE_DEPRECATED			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED		\
+ 	-DGTK_PREFIX=\"$(prefix)\"		\
+ 	$(INCLUDED_LOADER_DEFINE) 		\
+ 	$(GTK_DEBUG_FLAGS)			\
+diff -Naur gtk+-2.4.14/gdk-pixbuf/pixops/Makefile.am gtk+-2.4.14.oden/gdk-pixbuf/pixops/Makefile.am
+--- gtk+-2.4.14/gdk-pixbuf/pixops/Makefile.am	2003-05-06 23:54:28.000000000 +0200
++++ gtk+-2.4.14.oden/gdk-pixbuf/pixops/Makefile.am	2008-07-30 17:05:05.000000000 +0200
+@@ -3,9 +3,7 @@
+ INCLUDES = \
+ 	-I$(top_srcdir) -I$(top_builddir) 	\
+ 	$(GTK_DEBUG_FLAGS)			\
+-	$(GDK_PIXBUF_DEP_CFLAGS)		\
+-	-DG_DISABLE_DEPRECATED			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED
++	$(GDK_PIXBUF_DEP_CFLAGS)
+ 
+ noinst_PROGRAMS = timescale
+ 
+diff -Naur gtk+-2.4.14/gdk-pixbuf/pixops/Makefile.in gtk+-2.4.14.oden/gdk-pixbuf/pixops/Makefile.in
+--- gtk+-2.4.14/gdk-pixbuf/pixops/Makefile.in	2004-12-03 04:55:46.000000000 +0100
++++ gtk+-2.4.14.oden/gdk-pixbuf/pixops/Makefile.in	2008-07-30 17:05:13.000000000 +0200
+@@ -278,9 +278,7 @@
+ INCLUDES = \
+ 	-I$(top_srcdir) -I$(top_builddir) 	\
+ 	$(GTK_DEBUG_FLAGS)			\
+-	$(GDK_PIXBUF_DEP_CFLAGS)		\
+-	-DG_DISABLE_DEPRECATED			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED
++	$(GDK_PIXBUF_DEP_CFLAGS)
+ 
+ 
+ noinst_PROGRAMS = timescale
+diff -Naur gtk+-2.4.14/gtk/Makefile.am gtk+-2.4.14.oden/gtk/Makefile.am
+--- gtk+-2.4.14/gtk/Makefile.am	2004-02-28 00:51:14.000000000 +0100
++++ gtk+-2.4.14.oden/gtk/Makefile.am	2008-07-30 17:04:21.000000000 +0200
+@@ -22,10 +22,6 @@
+ 	-I$(top_srcdir) -I../gdk			\
+ 	-I$(top_srcdir)/gdk				\
+ 	-I$(top_srcdir)/gdk-pixbuf -I../gdk-pixbuf	\
+-	-DG_DISABLE_DEPRECATED				\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED			\
+-	-DGDK_DISABLE_DEPRECATED			\
+-	-DGTK_DISABLE_DEPRECATED			\
+ 	-DGTK_FILE_SYSTEM_ENABLE_UNSUPPORTED		\
+ 	$(GTK_DEBUG_FLAGS)				\
+ 	$(GTK_DEP_CFLAGS)
+diff -Naur gtk+-2.4.14/gtk/Makefile.in gtk+-2.4.14.oden/gtk/Makefile.in
+--- gtk+-2.4.14/gtk/Makefile.in	2004-12-03 04:55:47.000000000 +0100
++++ gtk+-2.4.14.oden/gtk/Makefile.in	2008-07-30 17:04:32.000000000 +0200
+@@ -300,10 +300,6 @@
+ 	-I$(top_srcdir) -I../gdk			\
+ 	-I$(top_srcdir)/gdk				\
+ 	-I$(top_srcdir)/gdk-pixbuf -I../gdk-pixbuf	\
+-	-DG_DISABLE_DEPRECATED				\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED			\
+-	-DGDK_DISABLE_DEPRECATED			\
+-	-DGTK_DISABLE_DEPRECATED			\
+ 	-DGTK_FILE_SYSTEM_ENABLE_UNSUPPORTED		\
+ 	$(GTK_DEBUG_FLAGS)				\
+ 	$(GTK_DEP_CFLAGS)
+diff -Naur gtk+-2.4.14/gtk/theme-bits/Makefile.am gtk+-2.4.14.oden/gtk/theme-bits/Makefile.am
+--- gtk+-2.4.14/gtk/theme-bits/Makefile.am	2003-05-06 23:55:40.000000000 +0200
++++ gtk+-2.4.14.oden/gtk/theme-bits/Makefile.am	2008-07-30 17:04:37.000000000 +0200
+@@ -1,6 +1,4 @@
+ INCLUDES = -I$(top_srcdir) -I$(top_builddir) 	\
+-	-DG_DISABLE_DEPRECATED			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED		\
+ 	$(GDK_PIXBUF_DEP_CFLAGS)
+ 
+ noinst_PROGRAMS = decompose-bits
+diff -Naur gtk+-2.4.14/gtk/theme-bits/Makefile.in gtk+-2.4.14.oden/gtk/theme-bits/Makefile.in
+--- gtk+-2.4.14/gtk/theme-bits/Makefile.in	2004-12-03 04:55:47.000000000 +0100
++++ gtk+-2.4.14.oden/gtk/theme-bits/Makefile.in	2008-07-30 17:04:42.000000000 +0200
+@@ -274,8 +274,6 @@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+ INCLUDES = -I$(top_srcdir) -I$(top_builddir) 	\
+-	-DG_DISABLE_DEPRECATED			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED		\
+ 	$(GDK_PIXBUF_DEP_CFLAGS)
+ 
+ 
+diff -Naur gtk+-2.4.14/modules/input/Makefile.am gtk+-2.4.14.oden/modules/input/Makefile.am
+--- gtk+-2.4.14/modules/input/Makefile.am	2004-02-17 16:24:25.000000000 +0100
++++ gtk+-2.4.14.oden/modules/input/Makefile.am	2008-07-30 17:05:19.000000000 +0200
+@@ -8,10 +8,6 @@
+ 	-I$(top_srcdir) 				\
+ 	-I$(top_srcdir)/gdk				\
+ 	-I$(top_builddir)/gdk				\
+-	-DG_DISABLE_DEPRECATED	 			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED			\
+-	-DGDK_DISABLE_DEPRECATED			\
+-	-DGTK_DISABLE_DEPRECATED 			\
+ 	$(GTK_DEBUG_FLAGS)				\
+ 	$(GTK_XIM_FLAGS)				\
+ 	$(GTK_DEP_CFLAGS)
+diff -Naur gtk+-2.4.14/modules/input/Makefile.in gtk+-2.4.14.oden/modules/input/Makefile.in
+--- gtk+-2.4.14/modules/input/Makefile.in	2004-12-03 04:55:48.000000000 +0100
++++ gtk+-2.4.14.oden/modules/input/Makefile.in	2008-07-30 17:05:24.000000000 +0200
+@@ -280,10 +280,6 @@
+ 	-I$(top_srcdir) 				\
+ 	-I$(top_srcdir)/gdk				\
+ 	-I$(top_builddir)/gdk				\
+-	-DG_DISABLE_DEPRECATED	 			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED			\
+-	-DGDK_DISABLE_DEPRECATED			\
+-	-DGTK_DISABLE_DEPRECATED 			\
+ 	$(GTK_DEBUG_FLAGS)				\
+ 	$(GTK_XIM_FLAGS)				\
+ 	$(GTK_DEP_CFLAGS)
+diff -Naur gtk+-2.4.14/tests/Makefile.am gtk+-2.4.14.oden/tests/Makefile.am
+--- gtk+-2.4.14/tests/Makefile.am	2004-05-01 15:54:33.000000000 +0200
++++ gtk+-2.4.14.oden/tests/Makefile.am	2008-07-30 17:04:09.000000000 +0200
+@@ -4,10 +4,6 @@
+ 	-I$(top_srcdir)				\
+ 	-I$(top_builddir)/gdk			\
+ 	-I$(top_srcdir)/gdk			\
+-	-DG_DISABLE_DEPRECATED			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED		\
+-	-DGDK_DISABLE_DEPRECATED		\
+-	-DGTK_DISABLE_DEPRECATED		\
+ 	$(GTK_DEBUG_FLAGS)			\
+ 	$(GTK_DEP_CFLAGS)
+ 
+diff -Naur gtk+-2.4.14/tests/Makefile.in gtk+-2.4.14.oden/tests/Makefile.in
+--- gtk+-2.4.14/tests/Makefile.in	2004-12-03 04:55:48.000000000 +0100
++++ gtk+-2.4.14.oden/tests/Makefile.in	2008-07-30 17:04:13.000000000 +0200
+@@ -278,10 +278,6 @@
+ 	-I$(top_srcdir)				\
+ 	-I$(top_builddir)/gdk			\
+ 	-I$(top_srcdir)/gdk			\
+-	-DG_DISABLE_DEPRECATED			\
+-	-DGDK_PIXBUF_DISABLE_DEPRECATED		\
+-	-DGDK_DISABLE_DEPRECATED		\
+-	-DGTK_DISABLE_DEPRECATED		\
+ 	$(GTK_DEBUG_FLAGS)			\
+ 	$(GTK_DEP_CFLAGS)
+ 

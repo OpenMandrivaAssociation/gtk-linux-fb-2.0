@@ -1,0 +1,42 @@
+diff -p -up gtk+-2.4.14/gtk/gtkiconfactory.c.g_hash_table_get_keys_fix gtk+-2.4.14/gtk/gtkiconfactory.c
+--- gtk+-2.4.14/gtk/gtkiconfactory.c.g_hash_table_get_keys_fix	2004-07-09 04:17:57.000000000 +0200
++++ gtk+-2.4.14/gtk/gtkiconfactory.c	2008-07-31 11:49:53.000000000 +0200
+@@ -2810,7 +2810,7 @@ listify_foreach (gpointer key, gpointer 
+ }
+ 
+ static GSList *
+-g_hash_table_get_keys (GHashTable *table)
++hash_table_get_keys (GHashTable *table)
+ {
+   GSList *list = NULL;
+ 
+@@ -2845,7 +2845,7 @@ _gtk_icon_factory_list_ids (void)
+       
+       GtkIconFactory *factory = GTK_ICON_FACTORY (tmp_list->data);
+ 
+-      these_ids = g_hash_table_get_keys (factory->icons);
++      these_ids = hash_table_get_keys (factory->icons);
+       
+       ids = g_slist_concat (ids, these_ids);
+       
+diff -p -up gtk+-2.4.14/gtk/gtkstock.c.g_hash_table_get_keys_fix gtk+-2.4.14/gtk/gtkstock.c
+--- gtk+-2.4.14/gtk/gtkstock.c.g_hash_table_get_keys_fix	2004-05-14 15:48:52.000000000 +0200
++++ gtk+-2.4.14/gtk/gtkstock.c	2008-07-31 11:50:56.000000000 +0200
+@@ -169,7 +169,7 @@ listify_foreach (gpointer key, gpointer 
+ }
+ 
+ static GSList *
+-g_hash_table_get_keys (GHashTable *table)
++hash_table_get_keys (GHashTable *table)
+ {
+   GSList *list = NULL;
+ 
+@@ -198,7 +198,7 @@ gtk_stock_list_ids (void)
+   
+   init_stock_hash ();
+ 
+-  ids = g_hash_table_get_keys (stock_hash);
++  ids = hash_table_get_keys (stock_hash);
+   icon_ids = _gtk_icon_factory_list_ids ();
+   ids = g_slist_concat (ids, icon_ids);
+ 
